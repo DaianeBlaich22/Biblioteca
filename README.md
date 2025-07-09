@@ -149,6 +149,7 @@ Además, se incluyen **comandos personalizados** que producen gráficos estadís
 
 ### **Registro de usuario**
 
+
 **Endpoint:**
 
 ```
@@ -166,11 +167,14 @@ POST http://127.0.0.1:8000/api/register/
 ```
 
 **Respuesta esperada (Postman):**
-IMAGEN
+
+![registrarse](https://github.com/user-attachments/assets/02107df3-cf2f-4b4a-a548-be5b485509c2)
+
 
 ---
 
 ### **Inicio de sesión**
+
 
 **Endpoint:**
 
@@ -188,7 +192,9 @@ POST http://127.0.0.1:8000/api/login/
 ```
 
 **Respuesta esperada (Postman):**
-IMAGEN
+
+![login](https://github.com/user-attachments/assets/0b79848c-0dfe-4c37-8ce1-f9e84db31924)
+
 
 El token generado se usa para autenticarse en los demás endpoints protegidos.
 
@@ -199,15 +205,19 @@ A continuación se muestra cómo interactuar con la API de libros utilizando mé
 Recuerda: Para las operaciones de actualización y eliminación, es obligatorio pasar el ID del libro en la URL.
 
 **Listar todos los libros**
+
 **Endpoint:**
 ```http
 GET http://127.0.0.1:8000/api/libros/
 ```
 **Respuesta esperada (Postman):**
+
 Se listan todos los libros registrados en la base de datos.
-IMAGEN
+
+![todos_los_libros](https://github.com/user-attachments/assets/19e388ef-2e38-41ef-8f5e-55234f89e54a)
 
 **Consultar un libro por ID**
+
 **Endpoint:**
 ```http
 GET http://127.0.0.1:8000/api/libros/1/
@@ -215,12 +225,16 @@ GET http://127.0.0.1:8000/api/libros/1/
 Donde 1 es el ID del libro que quieres consultar.
 
 **Respuesta esperada (Postman):**
+
 Se muestra el detalle del libro con ID 1.
-IMAGEN
+
+![pro_id](https://github.com/user-attachments/assets/593268e2-9d4b-4775-a672-37a73d3a3c32)
+
 
 **Agregar un nuevo libro**
-**Endpoint:
-**
+
+**Endpoint:**
+
 ```http
 POST http://127.0.0.1:8000/api/libros/
 ```
@@ -238,20 +252,24 @@ Ejemplo de datos a enviar:
 ```
 
 **Respuesta esperada (Postman):**
+
 Se retorna el objeto del libro recién creado, incluyendo su ID asignado por la base de datos.
-IMAGEN
+
+![insertar](https://github.com/user-attachments/assets/e03cea6f-0fce-4d5f-a97b-f04290293f6c)
+
 
 **Actualizar un libro existente**
+
 Para actualizar un libro, debes pasar el ID del libro en la URL.
 
-Ejemplo:
+**Ejemplo:**
 Supón que deseas actualizar el libro con ID 47.
 
-Endpoint:
+**Endpoint:**
 ```http
 PUT http://127.0.0.1:8000/api/libros/47/
 ```
-Ejemplo de datos a enviar:
+**Ejemplo de datos a enviar:**
 
 ```json
 {
@@ -268,8 +286,11 @@ Ejemplo de datos a enviar:
 Asegúrate de poner el ID correcto en la URL.
 
 **Respuesta esperada (Postman):**
+
 Se retorna el libro actualizado con los nuevos datos.
-IMAGEN
+
+![actualizar](https://github.com/user-attachments/assets/e4c918cd-7226-43cd-bb1b-b9a00d83964e)
+
 
 **Eliminar un libro**
 Para eliminar un libro, debes pasar el ID del libro en la URL.
@@ -283,10 +304,14 @@ DELETE http://127.0.0.1:8000/api/libros/47/
 ```
 
 **Respuesta esperada (Postman):**
+
 Se confirma la eliminación exitosa del libro (puede mostrar un mensaje o un status 204 sin contenido).
-IMAGEN
+
+![eliminar](https://github.com/user-attachments/assets/2db8ed16-26c5-4c33-912f-f8ec8d69f278)
+
 
 **Resumen**
+
 Para consultar, actualizar o eliminar un libro, el ID del libro debe ir en la URL.
 
 Para agregar, simplemente realiza el POST al endpoint sin necesidad de especificar un ID.
@@ -330,45 +355,78 @@ se generan automáticamente los siguientes gráficos estadísticos en la carpeta
 Archivo: 1-libros_por_genero.png
 Muestra cuántos libros hay en cada género literario dentro de la base de datos. Cada barra representa un género y el número arriba de cada barra indica la cantidad exacta.
 
+![1-libros_por_genero](https://github.com/user-attachments/assets/11646e88-ba75-4bf3-8aee-fc3503f87f20)
+
+
 **2. Top 10 autores con más libros**
 Archivo: 2-libros_por_autor.png
 Presenta los diez autores que tienen más libros registrados en el sistema, ordenados de mayor a menor. Ideal para identificar los autores más productivos en la biblioteca.
+
+![2-libros_por_autor](https://github.com/user-attachments/assets/330c027c-74f6-4364-8cc5-dc11c737552e)
+
 
 **3. Top 10 libros mejor calificados**
 Archivo: 3-top10_libros_calificacion.png
 Exhibe los diez libros con el promedio de calificación más alto, considerando únicamente aquellos que han recibido al menos una puntuación. Útil para recomendar lecturas destacadas.
 
+![3-top10_libros_calificacion](https://github.com/user-attachments/assets/b7ae8d65-c888-4f51-9bed-5c85c7648016)
+
+
 **4. Top 10 autores mejor calificados**
 Archivo: 4-top10_autores_calificacion.png
 Muestra los diez autores cuyos libros tienen, en promedio, las mejores calificaciones otorgadas por los usuarios. Es útil para descubrir los autores más valorados por la comunidad.
+
+![4-top10_autores_calificacion](https://github.com/user-attachments/assets/06249682-26d5-4e47-9c5f-a6648717f88b)
+
 
 **5. Libros publicados por década**
 Archivo: 5-libros_por_decada.png
 Agrupa los libros según la década en la que fueron lanzados, permitiendo visualizar tendencias de publicación y la evolución histórica del catálogo.
 
+![5-libros_por_decada](https://github.com/user-attachments/assets/a7c801ad-d66f-42e0-8ed6-4ed8cee251c2)
+
+
 **6. Usuarios más activos (top 10 por calificaciones)**
 Archivo: 6-top10_usuarios_califican.png
 Resalta los diez usuarios que han realizado más calificaciones, mostrando los miembros más participativos de la plataforma.
+
+![6-top10_usuarios_califican](https://github.com/user-attachments/assets/d4108d12-c838-4a84-82b1-3a118613c46f)
+
 
 **7. Distribución de calificaciones (histograma)**
 Archivo: 7-histograma_calificaciones.png
 Gráfico de histograma que muestra cómo se distribuyen todas las calificaciones otorgadas, permitiendo ver si la mayoría de libros reciben buenas, malas o variadas puntuaciones.
 
+![7-histograma_calificaciones](https://github.com/user-attachments/assets/8c46e854-83e8-447b-b167-1a6db332e608)
+
+
 **8. Libros con y sin calificaciones**
 Archivo: 8-libros_con_sin_calificacion.png
 Comparativo entre la cantidad de libros que tienen al menos una calificación y los que aún no han sido calificados por ningún usuario.
+
+![8-libros_con_sin_calificacion](https://github.com/user-attachments/assets/9e5795c3-46b7-4e85-9f24-42d0b1104f45)
+
 
 **9. Calificación promedio por género (horizontal)**
 Archivo: 9-promedio_genero_h.png
 Presenta el promedio de calificación global para cada género literario. El género mejor valorado se resalta en verde y el de menor promedio en rojo, facilitando la comparación.
 
+![9-promedio_genero_h](https://github.com/user-attachments/assets/63993fdc-5e2d-4615-90c3-6131c416183b)
+
+
 **10. Mejor libro por género (promedio calificación)**
 Archivo: 10-mejor_libro_por_genero.png
 Para cada género, muestra el libro que obtuvo el mayor promedio de calificación, permitiendo identificar las obras más destacadas de cada categoría.
 
+![10-mejor_libro_por_genero](https://github.com/user-attachments/assets/052fb82f-354a-4a19-b036-d17ab60ad78a)
+
+
 **11. Cantidad de libros por nacionalidad del autor**
 Archivo: 11-libros_por_nacionalidad.png
 Desglosa cuántos libros existen por cada nacionalidad de los autores registrados, visualizando la diversidad geográfica de la colección.
+
+![11-libros_por_nacionalidad](https://github.com/user-attachments/assets/dc40bf13-44bc-4c1c-a34a-fd5f1459ed96)
+
 
 
 ## Comando de recomendación de géneros y libros
@@ -401,6 +459,9 @@ Para ver recomendaciones de libros dentro de un género (por ID):
 python manage.py recomendar_generos --genero 3
 ```
 
+![recomendaciones](https://github.com/user-attachments/assets/69a15538-1761-49f7-8887-6d2d16ad0a0e)
+
+
 **Explicación técnica**
 Este comando utiliza consultas avanzadas del ORM de Django para:
 
@@ -422,8 +483,8 @@ No hay garantías explícitas. El uso es bajo tu propio riesgo.
 
 Para ver los detalles completos, consulta el archivo LICENSE incluido en este repositorio.
 
-*Licencia de terceros:
-*```text
+**Licencia de terceros:**
+```text
  Name                           Version      License
  Django                         5.2.4        BSD License
  PyJWT                          2.9.0        MIT License
